@@ -451,6 +451,20 @@ function M.toggle_btop()
   end
 end
 
+-- 添加 asciiquarium
+function M.toggle_asciiquarium()
+  return function()
+    require("astrocore").toggle_term_cmd {
+      cmd = "asciiquarium | lolcat",
+      direction = "float",
+      hidden = true,
+      on_open = function() M.remove_keymap("t", "<Esc>") end,
+      on_close = function() vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { silent = true, noremap = true }) end,
+      on_exit = function() end,
+    }
+  end
+end
+
 function M.toggle_lazy_git()
   return function()
     local worktree = require("astrocore").file_worktree()

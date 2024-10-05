@@ -78,6 +78,13 @@ function M.core_mappings(mappings)
       }
     end
 
+    if vim.fn.executable "asciiquarium" == 1 then
+      maps.n["<Leader>ta"] = {
+        require("utils").toggle_asciiquarium(),
+        desc="ToggleTerm asciiquarium",
+      }
+    end
+
     if vim.fn.executable "unimatrix" == 1 then
       maps.n["<Leader>tm"] = {
         require("utils").toggle_unicmatrix(),
