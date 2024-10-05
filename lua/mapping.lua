@@ -47,6 +47,9 @@ function M.core_mappings(mappings)
     maps.n["<Leader>lm"] = { "<Cmd>LspRestart<CR>", desc = "Lsp restart" }
     maps.n["<Leader>lg"] = { "<Cmd>LspLog<CR>", desc = "Show lsp log" }
 
+    -- esc
+    maps.i["jk"] = {"<ESC>", desc="Esc"}
+
     if vim.fn.executable "lazygit" == 1 then
       maps.n["<Leader>tl"] = {
         require("utils").toggle_lazy_git(),
