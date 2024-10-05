@@ -71,6 +71,13 @@ function M.core_mappings(mappings)
       }
     end
 
+    if vim.fn.executable "btop" == 1 then
+     maps.n["<Leader>tb"] = {
+      require("utils").toggle_btop(),
+        desc="ToggleTerm btop",
+      }
+    end
+
     if vim.fn.executable "unimatrix" == 1 then
       maps.n["<Leader>tm"] = {
         require("utils").toggle_unicmatrix(),
