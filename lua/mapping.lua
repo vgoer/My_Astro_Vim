@@ -27,7 +27,6 @@ function M.core_mappings(mappings)
 
     maps.n["H"] = { "^", desc = "Go to start without blank" }
     maps.n["L"] = { "$", desc = "Go to end without blank" }
-
     maps.v["<"] = { "<gv", desc = "Unindent line" }
     maps.v[">"] = { ">gv", desc = "Indent line" }
     maps.t["<Esc>"] = { [[<C-\><C-n>]], desc = "Exit terminal mode" }
@@ -50,6 +49,8 @@ function M.core_mappings(mappings)
     -- esc
     maps.i["jk"] = {"<ESC>", desc="Esc"}
 
+    maps.i["<leader>Mb"] = {"<Cmd>LiveServerStart<cr>", desc="open server"}
+    
     if vim.fn.executable "lazygit" == 1 then
       maps.n["<Leader>tl"] = {
         require("utils").toggle_lazy_git(),
@@ -94,7 +95,7 @@ function M.core_mappings(mappings)
 
     if vim.fn.executable "tte" == 1 then
       maps.n["<Leader>te"] = {
-        require("utils").toggl_tte(),
+        require("utils").toggle_tte(),
         desc = "ToggleTerm tte",
       }
     end
