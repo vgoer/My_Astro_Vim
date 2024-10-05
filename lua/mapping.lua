@@ -94,7 +94,7 @@ function M.core_mappings(mappings)
 
     if vim.fn.executable "tte" == 1 then
       maps.n["<Leader>te"] = {
-        require("utils").toggle_tte(),
+        require("utils").toggl_tte(),
         desc = "ToggleTerm tte",
       }
     end
