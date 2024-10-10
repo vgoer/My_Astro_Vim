@@ -47,10 +47,11 @@ function M.core_mappings(mappings)
     maps.n["<Leader>lg"] = { "<Cmd>LspLog<CR>", desc = "Show lsp log" }
 
     -- esc
-    maps.i["jk"] = {"<ESC>", desc="Esc"}
+    maps.i["jk"] = { "<ESC>", desc = "Esc" }
 
-    maps.i["<leader>Mb"] = {"<Cmd>LiveServerStart<cr>", desc="open server"}
-    
+    maps.i["<Leader>lb"] = { "<Cmd>LiveServerStart<cr>", desc = "open server" }
+    maps.n["<Leader>lb"] = { "<Cmd>LiveServerStart<cr>", desc = "open server" }
+
     if vim.fn.executable "lazygit" == 1 then
       maps.n["<Leader>tl"] = {
         require("utils").toggle_lazy_git(),
@@ -73,17 +74,23 @@ function M.core_mappings(mappings)
     end
     -- 添加btop
     if vim.fn.executable "btop" == 1 then
-     maps.n["<Leader>tb"] = {
-      require("utils").toggle_btop(),
-        desc="ToggleTerm btop",
+      maps.n["<Leader>tb"] = {
+        require("utils").toggle_btop(),
+        desc = "ToggleTerm btop",
       }
     end
 
-    -- 添加 asciiquarium
     if vim.fn.executable "asciiquarium" == 1 then
       maps.n["<Leader>ta"] = {
         require("utils").toggle_asciiquarium(),
-        desc="ToggleTerm asciiquarium",
+        desc = "ToggleTerm asciiquarium",
+      }
+    end
+    
+    if vim.fn.executable "firework" == 1 then
+      maps.n["<Leader>tF"] = {
+        require("utils").toggle_firework(),
+        desc = "ToggleTerm fireworks",
       }
     end
 

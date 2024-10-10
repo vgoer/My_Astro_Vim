@@ -465,6 +465,24 @@ function M.toggle_asciiquarium()
   end
 end
 
+-- 添加烟花 
+function M.toggle_firework()
+  return function()
+    -- 随机
+    math.randomseed(os.time())
+    local random_number = math.random(0,4)
+    require("astrocore").toggle_term_cmd {
+      cmd = string.format("firework -l -g -d %d", random_number),
+      direction = "float",
+      hidden = true,
+      on_open = function() M.remove_keymap("t", "<Esc>") end,
+      on_close = function() vim.api.nvim_set_keymap("t", "<Esc>", [[<C-\><C-n>]], { silent = true, noremap = true }) end,
+      on_exit = function() end,
+    }
+  end
+end
+
+
 function M.toggle_lazy_git()
   return function()
     local worktree = require("astrocore").file_worktree()
