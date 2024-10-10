@@ -71,7 +71,7 @@ function M.core_mappings(mappings)
         desc = "ToggleTerm btm",
       }
     end
-
+    -- 添加btop
     if vim.fn.executable "btop" == 1 then
      maps.n["<Leader>tb"] = {
       require("utils").toggle_btop(),
@@ -79,6 +79,7 @@ function M.core_mappings(mappings)
       }
     end
 
+    -- 添加 asciiquarium
     if vim.fn.executable "asciiquarium" == 1 then
       maps.n["<Leader>ta"] = {
         require("utils").toggle_asciiquarium(),
