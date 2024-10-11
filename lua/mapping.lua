@@ -93,6 +93,13 @@ function M.core_mappings(mappings)
         desc = "ToggleTerm fireworks",
       }
     end
+    
+    if vim.fn.executable "musicfox" == 1 then
+      maps.n["<Leader>tM"] = {
+        require("utils").toggle_musicfox(),
+        desc = "ToggleTerm musicfox",
+      }
+    end
 
     if vim.fn.executable "unimatrix" == 1 then
       maps.n["<Leader>tm"] = {
